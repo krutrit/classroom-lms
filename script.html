@@ -1,0 +1,53 @@
+<script>
+  function showToast(msg, type = '') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast show ' + type;
+    setTimeout(() => t.className = 'toast', 3000);
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('active');
+  }
+
+  function getTeacherToken() {
+    return sessionStorage.getItem('teacher_session') || '';
+  }
+
+  function clearTeacherToken() {
+    sessionStorage.removeItem('teacher_session');
+  }
+
+  function handleUnauthorized(err) {
+    if (String(err && err.message || err).includes('UNAUTHORIZED')) {
+      clearTeacherToken();
+      return true;
+    }
+    return false;
+  }
+
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('modal-overlay')) {
+      e.target.classList.remove('active');
+    }
+  });
+
+  /**
+   * แปลง Google Drive URL ทุก format ให้เป็น lh3.googleusercontent.com
+   * ซึ่งแสดงใน <img> tag ได้โดยไม่มีปัญหา
+   * รองรับ:
+   *   - https://drive.google.com/uc?export=view&id=FILE_ID  (format เก่า)
+   *   - https://drive.google.com/file/d/FILE_ID/view
+   *   - https://lh3.googleusercontent.com/d/FILE_ID  (ถูกอยู่แล้ว)
+   *   - URL อื่นๆ เช่น imgur, direct URL — ปล่อยผ่านตามเดิม
+   */
+  function fixDriveUrl(url) {
+    if (!url) return '';
+    if (url.startsWith('https://lh3.googleusercontent.com/d/')) return url;
+    const ucMatch = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+    if (ucMatch) return 'https://lh3.googleusercontent.com/d/' + ucMatch[1];
+    const fileMatch = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+    if (fileMatch) return 'https://lh3.googleusercontent.com/d/' + fileMatch[1];
+    return url;
+  }
+</script>

@@ -1,0 +1,14 @@
+.clasp.json
+.clasprc.json
+.env
+.env.*
+!.env.example
+node_modules/
+coverage/
+*.log
+*.xlsx
+*.xls
+*.csv
+*.tsv
+student_photos/
+
