@@ -1,4 +1,4 @@
-.clasp.json
+.clasp*.json
 .clasprc.json
 .env
 .env.*
@@ -11,4 +11,3 @@ coverage/
 *.csv
 *.tsv
 student_photos/
-
