@@ -50,7 +50,7 @@ Web App ถูกออกแบบให้หน้ากระดานคะ
 
 ## ลิงก์ระบบ
 
-- GitHub repository: จะเพิ่มหลังเผยแพร่
+- [GitHub repository](https://github.com/krutrit/classroom-lms)
 - [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1Gy79zRiPikUgw9L909C7FBkkVOaIkIjeSpfg5OFeuPY/edit)
 - [Apps Script editor](https://script.google.com/d/1vwKOo_e5TYNWFf7GU5GFIOz2kmDQ3OUnnY-hhlWHSyPkXqnddto35f5Q/edit)
 - [Web App](https://script.google.com/macros/s/AKfycbyu_xU5D14gDEAyHleMe8UDvVggh4ZeC98leBciHqd1Eiik41jHRQDJjXpghKyYTziC/exec)
